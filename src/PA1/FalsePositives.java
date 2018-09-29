@@ -12,7 +12,7 @@ public class FalsePositives {
     private static int testSize = 10000;
 
     public static void main(String[] args) {
-        int[] bitsPerElements = { 5, 10, 15, 20 };
+        int[] bitsPerElements = { 4, 8, 10 };
         for (int e : bitsPerElements) {
             System.out.println("bitsPerElement: " + e);
             System.out.println("Expected False Positive Rate: " + String.format("%.3f%%", Math.pow(0.618, e) * 100));
