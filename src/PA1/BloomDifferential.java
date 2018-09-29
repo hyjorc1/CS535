@@ -11,12 +11,12 @@ import static PA1.Differential.retrieveRecordFrom;
 /**
  * BloomDifferential1
  */
-public class BloomDifferential1 implements Differential {
+public class BloomDifferential implements Differential {
 
     private static int BITS_PER_ELEMENT = 8;
     private BloomFilter filter = null;
 
-    public BloomDifferential1() {
+    public BloomDifferential() {
         createFilter();
     }
 

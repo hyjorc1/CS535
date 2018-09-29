@@ -5,7 +5,7 @@ import static PA1.Differential.retrieveRecordFrom;
 /**
  * NaiveDifferential1
  */
-public class NaiveDifferential1 implements Differential {
+public class NaiveDifferential implements Differential {
 
     @Override
     public String retrieveRecord(String key) {

@@ -16,11 +16,11 @@ import static PA1.Differential.docPath;
 /**
  * EmpiricalComparison1
  */
-public class EmpiricalComparison1 {
+public class EmpiricalComparison {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Differential naive = new NaiveDifferential1();
-        Differential bloom = new BloomDifferential1();
+        Differential naive = new NaiveDifferential();
+        Differential bloom = new BloomDifferential();
 
         List<String> keys = pickRandomKeys(countLines(GRAMS_FILE));
         System.out.println("Size of random keys: " + keys.size());
@@ -57,7 +57,7 @@ public class EmpiricalComparison1 {
         long startTime = System.nanoTime();
         String record = null;
         if (falsePositive != null) {
-            BloomDifferential1 bd = (BloomDifferential1) diff;
+            BloomDifferential bd = (BloomDifferential) diff;
             record = bd.retrieveRecord(key, falsePositive);
         } else {
             record = diff.retrieveRecord(key);
@@ -68,7 +68,7 @@ public class EmpiricalComparison1 {
 
     private static List<String> pickRandomKeys(int numKeys) {
         Random r = new Random();
-        int[] ranKeyIdxes = new int[numKeys / 10000];
+        int[] ranKeyIdxes = new int[numKeys / 20000];
         for (int i = 0; i < ranKeyIdxes.length; i++) {
             ranKeyIdxes[i] = (int) (r.nextDouble() * numKeys);
         }
