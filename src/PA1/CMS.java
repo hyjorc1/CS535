@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
-public class CMS1 {
+public class CMS {
 
 	private int rowNum;
 	private int colNum;
@@ -13,7 +13,7 @@ public class CMS1 {
 	private int[][] pairs;
 	HashSet<String> itemSet;
 
-	public CMS1(double epsilon, double delta, ArrayList<String> s) {
+	public CMS(double epsilon, double delta, ArrayList<String> s) {
 		this.rowNum = (int) Math.abs(Math.log(1 / delta) / Math.log(2));
 		this.colNum = (int) Math.abs(2 / epsilon);
 		this.cms = new int[rowNum][colNum];

@@ -17,7 +17,7 @@ public class CMSTest {
 		ArrayList<String> words = getWords();
 
 		long beforeUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		CMS1 cms = new CMS1(epsilon, delta, words);
+		CMS cms = new CMS(epsilon, delta, words);
 		long afterUsedMem = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 		
 		double q = 0.04;
