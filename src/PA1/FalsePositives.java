@@ -8,8 +8,8 @@ import java.util.Set;
  */
 public class FalsePositives {
 
-    private static int setSize = 10000;
-    private static int testSize = 10000;
+    private static int setSize = 30000;
+    private static int testSize = 30000;
 
     public static void main(String[] args) {
         int[] bitsPerElements = { 4, 8, 10 };
