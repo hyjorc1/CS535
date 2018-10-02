@@ -16,6 +16,8 @@ public class CMSTest {
 		ArrayList<String> words = getWords();
 		CMS cms = new CMS(epsilon, delta, words);
 		ArrayList<String> L = cms.approximateHeavyHitter(0.04, 0.03);
+		
+		System.out.println("cms and " + cms.approximateFrequency("and"));
 
 		// a) Number of 0.04 heavy hitters that are in L.
 		// b) Number of 0.025 heavy hitters that are in L.
@@ -24,12 +26,13 @@ public class CMSTest {
 		int count_b = 0;
 		int count_c = 0;
 		for (String word : L) {
-			int f = cms.approximateFrequency(word);
-			if (f >= 0.04 * cms.getItemSize())
-				count_a++;
-			else
+			int f = countWord(words, word);
+			if (f >= 0.04 * words.size()) {
+				count_a++; 
+			} else {
 				count_c++;
-			if (f >= 0.025 * cms.getItemSize())
+			}
+			if (f >= 0.025 * words.size())
 				count_b++;
 		}
 		System.out.println("a) Number of 0.04 heavy hitters: " + count_a);
@@ -45,10 +48,20 @@ public class CMSTest {
 		// e) An estimate of total memory used to store the CMS data structure.
 		System.out.println("e) Memory used: " + cms.getMemorySize() + "MB");
 	}
+	
+	public static int countWord(ArrayList<String> words, String word) {
+		int count = 0;
+		for (String e : words) {
+			if (e.equals(word))
+				count++;
+		}
+		return count++;
+	}
 
 	public static ArrayList<String> getWords() {
 		ArrayList<String> words = new ArrayList<String>();
 		File file = new File(Differential.docPath + "/shakespear.txt");
+		int count = 0;
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String line = null;
 			while ((line = br.readLine()) != null) {
@@ -56,15 +69,17 @@ public class CMSTest {
 				Matcher m = p.matcher(line);
 				while (m.find()) {
 					String word = m.group().toLowerCase();
+					if (word.equals("and"))
+						count++;
 					if (word.length() >= 3 
-							&& !word.equals("the")
-							&& !word.equals("The"))
+							&& !word.equals("the"))
 					words.add(word);
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("actucal and " + count);
 		return words;
 	}
 
