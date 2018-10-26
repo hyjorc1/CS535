@@ -2,6 +2,28 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Analysis",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA2.Analysis",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NearDuplicates",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA2.NearDuplicates",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - CMSTest",
             "request": "launch",
             "cwd": "${workspaceFolder}",

@@ -16,7 +16,7 @@ public class CMSTest {
 		ArrayList<String> words = getWords();
 		CMS cms = new CMS(epsilon, delta, words);
 		ArrayList<String> L = cms.approximateHeavyHitter(0.04, 0.03);
-		
+
 		System.out.println("cms and " + cms.approximateFrequency("and"));
 
 		// a) Number of 0.04 heavy hitters that are in L.
@@ -28,7 +28,7 @@ public class CMSTest {
 		for (String word : L) {
 			int f = countWord(words, word);
 			if (f >= 0.04 * words.size()) {
-				count_a++; 
+				count_a++;
 			} else {
 				count_c++;
 			}
@@ -48,7 +48,7 @@ public class CMSTest {
 		// e) An estimate of total memory used to store the CMS data structure.
 		System.out.println("e) Memory used: " + cms.getMemorySize() + "MB");
 	}
-	
+
 	public static int countWord(ArrayList<String> words, String word) {
 		int count = 0;
 		for (String e : words) {
@@ -71,9 +71,8 @@ public class CMSTest {
 					String word = m.group().toLowerCase();
 					if (word.equals("and"))
 						count++;
-					if (word.length() >= 3 
-							&& !word.equals("the"))
-					words.add(word);
+					if (word.length() >= 3 && !word.equals("the"))
+						words.add(word);
 				}
 			}
 		} catch (IOException e) {
