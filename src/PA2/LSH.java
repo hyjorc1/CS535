@@ -1,17 +1,14 @@
 package PA2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Random;
 
 import static PA2.MinHash.nextPrime;
 
 public class LSH {
 
 	private ArrayList<HashMap<Integer, HashSet<String>>> hashTables;
-	private int T;
 
 	/**
 	 * @param minHashMatrix is the MinHash matrix of the document collection.
@@ -21,41 +18,25 @@ public class LSH {
 	 *                      sensitive hashing.
 	 */
 	public LSH(int[][] minHashMatrix, String[] docNames, int bands) {
-//		for (int[] row : minHashMatrix){
-//		    System.out.println(Arrays.toString(row));
-//		   }
-		Random random = new Random();
-		int k = minHashMatrix.length;
-		int r = k % bands == 0 ? k / bands : k / bands + 1;
-		T = (int) nextPrime(docNames.length);
-		hashTables = new ArrayList<HashMap<Integer, HashSet<String>>>(bands);
-		for (int i = 0; i < bands; i++)
-			hashTables.add(new HashMap<Integer, HashSet<String>>());
-		int[][] pairs = new int[bands][2];
-		for (int i = 0; i < bands; i++) {
-			pairs[i][0] = (random.nextInt(T));
-			pairs[i][1] = (random.nextInt(T));
-		}
-		System.out.println("bands & r & T: " + bands + " " + r + " " + T);
-		for (int col = 0; col < minHashMatrix[0].length; col++) {
-			int idx = 0, row = 0;
-			while (idx < bands) {
-				int next = r + idx;
-				String s = "#";
-				while (row < next && row < minHashMatrix.length)
-					s.concat(minHashMatrix[row++][col] + "#");
-				int h = ranHashCode(s, pairs[idx]);
-//				System.out.println(h + " " + idx);
-				if (!hashTables.get(idx).containsKey(h))
-					hashTables.get(idx).put(h, new HashSet<String>());
-				hashTables.get(idx++).get(h).add(docNames[col]);
-			}
-		}
-	}
+		int r = minHashMatrix.length / bands;
+		int tableSize = (int) nextPrime(docNames.length * 8);
+		hashTables = new ArrayList<HashMap<Integer, HashSet<String>>>();
 
-	private int ranHashCode(String s, int[] pair) {
-		long h = (pair[0] * s.hashCode() + pair[1]) % this.T;
-		return (int) (Math.abs(h) % this.T);
+		StringBuilder s = null;
+		for (int bandIdx = 0; bandIdx < bands; bandIdx++) {
+			HashMap<Integer, HashSet<String>> table = new HashMap<Integer, HashSet<String>>();
+			int start = bandIdx * r, end = start + r;
+			for (int col = 0; col < minHashMatrix[0].length; col++) {
+				s = new StringBuilder().append("#");
+				for (int row = start; row < end; row++)
+					s.append(minHashMatrix[row][col] + "#");
+				int h = s.toString().hashCode() % tableSize;
+				if (!table.containsKey(h))
+					table.put(h, new HashSet<String>());
+				table.get(h).add(docNames[col]);
+			}
+			hashTables.add(table);
+		}
 	}
 
 	/**
@@ -66,16 +47,13 @@ public class LSH {
 		HashSet<String> result = new HashSet<String>();
 		for (HashMap<Integer, HashSet<String>> table : hashTables) {
 			for (HashSet<String> set : table.values()) {
-//				System.out.println(set);
 				if (set.contains(docName)) {
-//					System.out.println(set.size());
 					result.addAll(set);
 				}
 			}
 		}
 		if (!result.isEmpty())
 			result.remove(docName);
-//		System.out.println(result.size());
 		return new ArrayList<String>(result);
 	}
 

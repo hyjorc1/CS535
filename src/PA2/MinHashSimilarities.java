@@ -14,7 +14,7 @@ public class MinHashSimilarities {
         this.mh = new MinHash(folder, numPermutations);
         this.termDocMat = mh.termDocumentMatrix();
         this.minHashMat = mh.minHashMatrix();
-//        System.out.println("mhs done");
+        // System.out.println("mhs done");
     }
 
     /**

@@ -11,25 +11,39 @@ public class Analysis {
 	private static String ARTICLES_PATH = PATH + "articles";
 
 	public static void main(String[] args) {
-		
-	
-		
+
 		// MinHashAccuracy
-//		int[] numPermutations = { 400, 600, 800 };
-//		double[] epsilons = { 0.04, 0.07, 0.09 };
-//		MinHashAccuracy ma = new MinHashAccuracy();
-//		for (int numPermutation : numPermutations) {
-//			for (double epsilon : epsilons) {
-//				int count = ma.accuracy(SPACE_PATH, numPermutation, epsilon);
-//				System.out.println("numPermutation: " + numPermutation + " epsilon: " + epsilon + " count: " + count);
-//			}
-//		}
+		int[] numPermutations = { 400, 600, 800 };
+		double[] epsilons = { 0.04, 0.07, 0.09 };
+		MinHashAccuracy ma = new MinHashAccuracy();
+		for (int numPermutation : numPermutations) {
+			for (double epsilon : epsilons) {
+				int count = ma.accuracy(SPACE_PATH, numPermutation, epsilon);
+				System.out.println("numPermutation: " + numPermutation + " epsilon: " + epsilon + " count: " + count);
+			}
+		}
 
 		// MinHashTime
-//		MinHashTime.timer(SPACE_PATH, 600);
-		
+		MinHashTime.timer(SPACE_PATH, 600);
+
 		// nearDuplicateDetector
-		NearDuplicates nd = new NearDuplicates(F17PA2_PATH, 600, 0.8);
-		System.out.println("space-713.txt.copy4 " + nd.nearDuplciateDetector("space-713.txt.copy4").size() + nd.nearDuplciateDetector("space-713.txt.copy4").toString());
+		String[] files = { "hockey111.txt", "baseball1.txt", "hockey661.txt", "space-101.txt" };
+		double[] thresholds = { 0.8, 0.9 };
+		int[] numPermutations1 = { 400, 600 };
+
+		for (String file : files) {
+			for (double threshold : thresholds) {
+				for (int numPermutation : numPermutations1) {
+					System.out.println();
+					NearDuplicates nd = new NearDuplicates(F17PA2_PATH, numPermutation, threshold);
+					System.out.println("Inputs - file: " + file + ", numPermutation: " + numPermutation
+							+ ", threshold: " + threshold);
+					System.out.println("Similar docs:");
+					for (String e : nd.nearDuplciateDetector(file))
+						System.out.println(e);
+				}
+			}
+		}
+
 	}
 }

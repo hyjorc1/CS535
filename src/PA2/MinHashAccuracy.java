@@ -4,12 +4,12 @@ public class MinHashAccuracy {
 
 	private MinHashSimilarities mhs;
 	private int numPerm;
-	
+
 	public MinHashAccuracy() {
 		this.mhs = null;
 		this.numPerm = -1;
 	}
-	
+
 	public int accuracy(String folder, int numPermutations, double epsilon) {
 		if (mhs == null || numPerm != numPermutations)
 			mhs = new MinHashSimilarities(folder, numPermutations);
@@ -21,8 +21,9 @@ public class MinHashAccuracy {
 				double exactJaccard = mhs.exactJaccard(fileNames[i], fileNames[j]);
 				double approimateJaccard = mhs.approximateJaccard(fileNames[i], fileNames[j]);
 				if (Math.abs(exactJaccard - approimateJaccard) > epsilon) {
-//					System.out.println(fileNames[i] + " " + fileNames[j] + " " + exactJaccard + " " + approimateJaccard
-//							+ " " + epsilon);
+					// System.out.println(fileNames[i] + " " + fileNames[j] + " " + exactJaccard + "
+					// " + approimateJaccard
+					// + " " + epsilon);
 					count++;
 				}
 			}
