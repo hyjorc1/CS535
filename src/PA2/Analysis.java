@@ -8,7 +8,7 @@ public class Analysis {
 	private static String PATH = "/Users/yijiahuang/2018 Fall/535/hw/PA2/";
 	private static String SPACE_PATH = PATH + "space";
 	private static String F17PA2_PATH = PATH + "F17PA2";
-	private static String ARTICLES_PATH = PATH + "articles";
+	// private static String ARTICLES_PATH = PATH + "articles";
 
 	public static void main(String[] args) {
 

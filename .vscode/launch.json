@@ -2,124 +2,25 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Analysis",
+            "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "stopOnEntry": false,
-            "mainClass": "PA2.Analysis",
+            "mainClass": "PA3.Main",
             "args": "",
             "projectName": "CS535"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - NearDuplicates",
+            "name": "CodeLens (Launch) - WikiCrawler",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA2.NearDuplicates",
+            "stopOnEntry": true,
+            "mainClass": "PA3.WikiCrawler",
             "args": "",
             "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - CMSTest",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.CMSTest",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - CMS1",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.CMS1",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - NaiveDifferential",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.NaiveDifferential",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - EmpiricalComparison1",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.EmpiricalComparison1",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - EmpiricalComparison",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.EmpiricalComparison",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Helper",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.Helper",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - FalsePositives",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.FalsePositives",
-            "args": "",
-            "projectName": "CS535"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - FalsePositives",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.FalsePositives",
-            "args": "",
-            "projectName": "CS535PA1"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Helper",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "PA1.Helper",
-            "args": "",
-            "projectName": "CS535PA1"
         }
     ]
 }
