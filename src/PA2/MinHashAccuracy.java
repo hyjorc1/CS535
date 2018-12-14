@@ -15,11 +15,14 @@ public class MinHashAccuracy {
 			mhs = new MinHashSimilarities(folder, numPermutations);
 		numPerm = numPermutations;
 		String[] fileNames = mhs.allDocs();
+
 		int count = 0;
 		for (int i = 0; i < fileNames.length; i++) {
 			for (int j = i + 1; j < fileNames.length; j++) {
 				double exactJaccard = mhs.exactJaccard(fileNames[i], fileNames[j]);
 				double approimateJaccard = mhs.approximateJaccard(fileNames[i], fileNames[j]);
+				double diff = Math.abs(exactJaccard - approimateJaccard);
+				System.out.println(fileNames[i] + " " + fileNames[j] + " " + diff);
 				if (Math.abs(exactJaccard - approimateJaccard) > epsilon) {
 					// System.out.println(fileNames[i] + " " + fileNames[j] + " " + exactJaccard + "
 					// " + approimateJaccard
@@ -28,10 +31,6 @@ public class MinHashAccuracy {
 				}
 			}
 		}
-		// System.out.println(
-		// "The number of pairs for which exaxt and approximate similarities differ by
-		// more then epsilon: "
-		// + count);
 		return count;
 	}
 }

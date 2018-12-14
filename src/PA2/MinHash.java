@@ -43,7 +43,7 @@ public class MinHash {
 	private void reprocess(String folder) {
 		File[] files = new File(folder).listFiles();
 		docsArray = new String[files.length];
-		docTermsList = new ArrayList<HashSet<Integer>>(files.length);
+		docTermsList = new ArrayList<HashSet<Integer>>();
 		termToIdxMap = new HashMap<String, Integer>();
 		fileNameToIdxMap = new HashMap<String, Integer>();
 		for (int i = 0; i < files.length; i++) {
@@ -58,7 +58,7 @@ public class MinHash {
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				line = line.toLowerCase().replace("[.,:;']", ""); // lower case & remove .,:;'
+				line = line.toLowerCase().replaceAll("[.,:;']", ""); // lower case & remove .,:;'
 				String[] words = line.split("\\s+");
 				for (String word : words) {
 					if (word.length() > 2 && !word.equals("the")) { // remove word length <= 2 & "the"
@@ -121,7 +121,8 @@ public class MinHash {
 
 	private int ranPermutation(Integer termIdx, int[] pair) {
 		long h = (pair[0] * termIdx + pair[1]) % this.prime;
-		return (int) (Math.abs(h) % this.termToIdxMap.size());
+		// return (int) (Math.abs(h) % this.termToIdxMap.size());
+		return (int) h;
 	}
 
 	/**

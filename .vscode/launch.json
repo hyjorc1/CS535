@@ -2,6 +2,72 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Analysis",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA4.Analysis",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA4.test",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Analysis",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA2.Analysis",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyWikiRanker",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA3.MyWikiRanker",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA3.test",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TreeSetUserDefinedObjectExample",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "PA3.TreeSetUserDefinedObjectExample",
+            "args": "",
+            "projectName": "CS535"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "cwd": "${workspaceFolder}",
