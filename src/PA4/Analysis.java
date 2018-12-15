@@ -18,17 +18,20 @@ public class Analysis {
 
 		String folder = "/Users/yijiahuang/2018 Fall/535/hw/PA4/IR";
 
-		String q1 = "history";
-		String q2 = "history museum";
-		String q3 = "New York Yankees";
-		String q4 = "1925 Chicago Cubs season";
-		String q5 = "Robert Morris University for";
+//		String q1 = "history";
+//		String q2 = "history museum";
+//		String q3 = "New York Yankees";
+//		String q4 = "1925 Chicago Cubs season";
+//		String q5 = "Robert Morris University for";
+//		String q = q1;
+//		Analysis als = new Analysis(folder);
+//		System.out.println("Query: " + q);
+//		als.qp.topKDocs(q, 10);
+		
+		String test = "/Users/yijiahuang/2018 Fall/535/hw/PA4/test";
+		Analysis als = new Analysis(test);
+		System.out.println(als.pi.postingsList("4e16f9bae26f450096fdfffff7cec792"));
 
-		String q = q1;
-		Analysis als = new Analysis(folder);
-
-		System.out.println("Query: " + q);
-		als.qp.topKDocs(q, 10);
 		
 		
 	}
