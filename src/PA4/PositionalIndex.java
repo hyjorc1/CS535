@@ -24,7 +24,7 @@ public class PositionalIndex {
         File[] files = new File(folder).listFiles();
         System.out.println("Num of files: " + files.length);
         this.docs = new ArrayList<String>();
-        for (File file : files) {
+        for (File file : files) {	
             int pos = 1;
             String doc = file.getName();
             docs.add(doc);
@@ -48,8 +48,8 @@ public class PositionalIndex {
     }
 
     public static String[] getWordsFrom(String line) {
-        line = line.toLowerCase().replaceAll("[,\"?'{}:;()]", "").replaceAll("\\[|\\]", ""); // remove punctuations
-        line = line.replaceAll("\\.(?!\\d)", ""); // remove period
+        line = line.toLowerCase().replaceAll("[,\"?'{}:;()]", " ").replaceAll("\\[|\\]", " "); // remove punctuation
+        line = line.replaceAll("\\.(?!\\d)", " "); // remove period
         return line.split("\\s+"); // split by space+
     }
 
@@ -69,7 +69,7 @@ public class PositionalIndex {
         return this.termToPostings.get(t);
     }
 
-    public String postingList(String t) {
+    public String postingsList(String t) {
     		t = t.toLowerCase();
         String output = "[";
         if (termToPostings.containsKey(t)) {

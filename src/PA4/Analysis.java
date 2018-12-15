@@ -26,9 +26,11 @@ public class Analysis {
 
 		String q = q1;
 		Analysis als = new Analysis(folder);
+
 		System.out.println("Query: " + q);
 		als.qp.topKDocs(q, 10);
-
+		
+		
 	}
 
 	public Analysis(String folder) {
